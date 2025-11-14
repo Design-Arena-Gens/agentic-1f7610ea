@@ -1,0 +1,158 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  background: radial-gradient(circle at top left, #1b263b, #0b132b);
+  color: #e0e9f7;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  width: min(1100px, 92vw);
+  display: grid;
+  gap: 2rem;
+  padding: clamp(2rem, 5vw, 3.5rem);
+}
+
+.canvas {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(8, 20, 43, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 70px rgba(6, 12, 30, 0.55);
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.35)
+  );
+  pointer-events: none;
+}
+
+.logo-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 260px) 1fr;
+  gap: clamp(2rem, 4vw, 3rem);
+  align-items: center;
+  z-index: 1;
+}
+
+.glyph {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(14, 30, 66, 0.9), rgba(8, 18, 40, 0.9));
+  padding: clamp(1.5rem, 4vw, 2rem);
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(110, 206, 255, 0.1);
+}
+
+.glyph::after {
+  content: '';
+  position: absolute;
+  inset: 12%;
+  border-radius: 28px;
+  border: 1px solid rgba(67, 97, 238, 0.4);
+  filter: blur(0.5px);
+  pointer-events: none;
+}
+
+.glyph__svg {
+  width: 100%;
+  height: auto;
+}
+
+.details {
+  display: grid;
+  gap: 1rem;
+}
+
+.subtitle {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: rgba(144, 224, 239, 0.9);
+  margin: 0;
+}
+
+.headline {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #edf2f4;
+}
+
+.body {
+  margin: 0;
+  line-height: 1.6;
+  max-width: 36ch;
+  color: rgba(208, 220, 241, 0.86);
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.badges span {
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(67, 97, 238, 0.15);
+  border: 1px solid rgba(67, 97, 238, 0.35);
+  color: rgba(226, 245, 255, 0.9);
+  letter-spacing: 0.04em;
+}
+
+.footer {
+  text-align: center;
+  color: rgba(160, 180, 210, 0.6);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 880px) {
+  .logo-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .details {
+    justify-items: center;
+  }
+
+  .body {
+    max-width: 100%;
+  }
+}
